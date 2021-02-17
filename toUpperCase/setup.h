@@ -8,7 +8,7 @@
 // Setup quicksort data
 namespace qsetup { 
 
-	int N = 256; // run through all characters
+	int N = 256; // run through all ascii characters
 
 	std::vector<char> ground_truth;
 	std::vector<char> test_array;
@@ -20,10 +20,7 @@ namespace qsetup {
 
 		for (auto i = 1; i < N; i++) {
 			test_array[i] = i;
-			ground_truth[i] = i;
-
-			if (i >= 'a' && i <= 'z')
-				ground_truth[i] -= 32; //  set to uppercase
+			ground_truth[i] = (i < 'a' || i > 'z') ? i : i-32;
 		}
 	}
 

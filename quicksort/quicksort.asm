@@ -1,6 +1,6 @@
 ; Microsoft Visual Studio 2019 
 ; MASM x64
-; Quicksort - implementation of Hoare partition scheme
+; Quicksort - implementation of quicksort - Hoare partition scheme
 
 .code
 arr textequ <rcx>
@@ -24,12 +24,12 @@ quicksort proc
 	;  rcx - arr - pointer to the array
 	;  rdx - _end  - size of the array
 	;  r8  - start  - 0
-	;  'partitioning' returns in rax next start/_end value
+	;  'partitioning' - procedure returns in rax register next start/_end value
 	call partitioning
 
 	; set new range:
-	; _end := rax
 	; start := start (old value)
+	; _end := rax
 	; jump to LB_omit if start == end
 	push _end
 	mov _end, rax
@@ -40,8 +40,8 @@ LB_omit:
 	pop _end
 
 	; set new range:
-	;  _end := _end (old value)
 	;  start := rax
+	;  _end := _end (old value)
 	;  jump to LB_end if start == end
 	push start
 	mov start, rax
@@ -75,7 +75,7 @@ partitioning proc
 LB_Repeat:
 LB_start_smaller_than_mid:
 	; do .. while loop
-	; start - iterator starting from the start of the array
+	; start - iterator starting from the beginning of the array
 	; increment start
 	; if Arr[start] >= Arr[(_end+start)/2], break the loop
 	inc start
