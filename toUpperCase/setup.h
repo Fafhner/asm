@@ -5,7 +5,6 @@
 #include <random>
 #include <functional>
 
-// Setup quicksort data
 namespace qsetup { 
 
 	int N = 256; // run through all ascii characters

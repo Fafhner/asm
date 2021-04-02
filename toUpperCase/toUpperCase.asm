@@ -29,7 +29,7 @@ LB_new_char:
 	cmp char, 122	; greater than char 'z'
 	ja LB_omit 
 
-	and char, 0DFh	; zeroing 5 bit
+	and char, 0DFh	; zeroing 5th bit
 LB_dec:
 	dec n
 
